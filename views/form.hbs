@@ -1,33 +1,39 @@
 <div class="formPage">
-<<<<<<< HEAD
-  <h1>Form</h1>
-  <form action="/confirmationPage" method="POST">
-    First Name: <input type="text" name="First name"> <br><br>
-    Last Name: <input type="text" name="last name"> <br><br>
-    Billing Address: <input type="text" name="address"> <br><br>
-    Phone number: <input type="text" name="phone number"> <br><br>
-    Email: <input type="text" name="email"><br><br>
-    Hotel: <input type="text" name="hotel"><br><br>
-    Drop off: <input type="text" name="drop off"><br><br>
-    Pick up: <input type="text" name="pick up"><br><br>
-    # of Luggages <input type="text"> <br><br>
-    <input type="submit" value="submit">
 
-=======
   <h1>form</h1>
-  <form action="/confirmationPage" method="POST">
+  <form action="/form" method="POST" enctype="application/x-www-form-urlencoded">
     First Name: <input type="text" name="first_name"><br><br>
     Last Name: <input type="text" name="last_name"><br><br>
     Billing Address: <input type="text" name="address"><br><br>
-    Email: <input type="text" name="email">
+    Phone Number: <input type="text" name="phoneNumber"><br><br>
+    Email: <input type="text" name="email"> <br> <br>
     Hotel: <select name="hotel" id="hotelList">
       <option value="Hyatt"> Hyatt</option>
       <option value="Hilton Hawaiian Village">Hilton Hawaiian Village</option>
       <option value="Halekulani">Halekulani</option>
       <option value="Sheraton">Sheraton</option>
 
-    </select>
->>>>>>> formBranch
+    </select><br><br>
+    Drop off date/time: <input type="date" name="drop_off"><br><br>
+    Pick up date/time: <input type="date" name="pick_up"><br><br>
+    Route: <select name="destination" id="destinationList">
+      <option value="airport">Airport to Hotel</option>
+      <option value="hotel">Hotel to Airport</option>
+    </select><br><br>
+    Number of luggages: <select name="luggages" id="luggageList">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select><br><br>
+    <button type="submit" name="submit">submit</button>
+
 
 
   </form>

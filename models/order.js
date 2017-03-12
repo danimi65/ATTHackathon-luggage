@@ -8,7 +8,9 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     drop_off: DataTypes.DATE,
     pick_up: DataTypes.DATE,
-    luggage: DataTypes.INTEGER
+    luggage: DataTypes.INTEGER,
+    route: DataTypes.STRING,
+    hotel: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
