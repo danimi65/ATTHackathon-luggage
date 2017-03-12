@@ -47,7 +47,7 @@ router.route('/:id')
 				}
 			}
 		}
-<<<<<<< HEAD
+
 		})
 		.then(function(viewOrder) {
 			// res.render('order/view', {viewOrduer: viewOrder});
@@ -57,18 +57,8 @@ router.route('/:id')
 			console.log(err);
 			res.send('Your order cannot be found or does not exist');
 		});
-=======
-	})
-	.then(function(viewOrder) {
-		// res.render('order/view', {viewOrder: viewOrder});
-		res.send('sanity view order');
-	})
-	.catch(err => {
-		console.log(err);
-		res.send('Your order cannot be found or does not exist');
+
 	});
->>>>>>> 6e922e1678925badadcbe0c0eaf2979b42dde205
-});
 
 
 // 	//Form Page
