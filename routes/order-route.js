@@ -28,8 +28,8 @@ router.route('/status')
 	.get((req, res) => {
 		models.Order.findAll()
 		.then(function(findOrder) {
-			// res.render('order/track', {findOrder: findOrder});
-			res.send('sanity status');
+			res.render('status', {findOrder: findOrder});
+			// res.send('sanity status');
 		});
 });
 
