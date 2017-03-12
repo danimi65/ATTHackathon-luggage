@@ -38,13 +38,16 @@ router.route('/:id')
 	.get((req, res) => {
 		models.Order.find({where: {
 			id: req.params.id,
-			drop_off: {
-				$ne: null
-			},
-			pick_up: {
-				$ne: null
+			$and: {
+					drop_off: {
+					$ne: null
+				},
+				pick_up: {
+					$ne: null
+				}
 			}
 		}
+<<<<<<< HEAD
 		})
 		.then(function(viewOrder) {
 			// res.render('order/view', {viewOrduer: viewOrder});
@@ -54,6 +57,17 @@ router.route('/:id')
 			console.log(err);
 			res.send('Your order cannot be found or does not exist');
 		});
+=======
+	})
+	.then(function(viewOrder) {
+		// res.render('order/view', {viewOrder: viewOrder});
+		res.send('sanity view order');
+	})
+	.catch(err => {
+		console.log(err);
+		res.send('Your order cannot be found or does not exist');
+	});
+>>>>>>> 6e922e1678925badadcbe0c0eaf2979b42dde205
 });
 
 
