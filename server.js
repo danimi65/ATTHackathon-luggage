@@ -1,25 +1,29 @@
 const express = require('express');
 const bp = require('body-parser');
-const app = express();
 const handlebars = require('express-handlebars');
+const app = express();
 const methodOverride = require('method-override');
+app.use(express.static('public'));
 const hbs = handlebars.create({
-	extname: '.hbs',
-	defaultLayout: 'app'
+  extname: '.hbs',
+  layoutDir: 'app'
 });
+const db = require('./models');
+const order = require('./routes/order-route');
+const {Order} = db;
 
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
-app.use(express.static('public'));
 
 app.use(methodOverride('_method'));
 
-const order = require('./routes/order-route');
 
-const db = require('./models');
-const {Order} = db;
+app.use('/', order);
 
-app.use('/order', order);
+// app.get('/', (req, res)=>{
+//   console.log('hello world');
+//   res.render('form');
+// });
 
 app.listen(3000, function() {
 	console.log('Server listening on port 3000');
