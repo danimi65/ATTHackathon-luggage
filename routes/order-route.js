@@ -18,12 +18,11 @@ router.route('/')
 //	Order Form
 router.route('/form')
 	.get((req, res) => {
-		// models.Order.findAll()
-		// .then(function(newOrder) {
-		// 	res.render('form', {newOrder: newOrder});
-			res.render('./form');
+		models.Order.findAll()
+		.then(function(newOrder) {
+			res.render('form', {newOrder: newOrder});
 			// res.send('sanity new');
-		// });
+		});
 })
 	.post((req, res) =>{
 	console.log(req.body);
@@ -40,7 +39,7 @@ router.route('/form')
 		hotel: req.body.hotel
 	})
 	.then((orders) =>{
-		res.redirect(303, 'confirmationPage');
+		res.redirect(303, `/confirmationPage`);
 	})
 	.catch(err=>{
 		console.log('post error', err);
@@ -59,32 +58,33 @@ router.route('/status')
 		});
 });
 
-//	Order Status
-// router.route('/:id')
-// 	.get((req, res) => {
-// 		models.Order.find({where: {
-// 			id: req.params.id,
-// 			$and: {
-// 					drop_off: {
-// 					$ne: null
-// 				},
-// 				pick_up: {
-// 					$ne: null
-// 				}
-// 			}
-// 		}
+	// Order Status
+router.route('/confirmationPage')
+	.get((req, res) => {
+		console.log('id', req.params.id);
+		models.Order.find({where: {
+			id: req.params.id,
+			$and: {
+					drop_off: {
+					$ne: null
+				},
+				pick_up: {
+					$ne: null
+				}
+			}
+		}
 
-// 		})
-// 		.then(function(viewOrder) {
-// 			res.render('guest-order', {viewOrder: viewOrder});
-// 			// res.send('sanity view order');
-// 		})
-// 		.catch(err => {
-// 			console.log(err);
-// 			res.send('Your order cannot be found or does not exist');
-// 		});
+		})
+		.then(function(viewOrder) {
+			res.render('confirmationPage', {viewOrder: viewOrder});
+			// res.send('sanity view order');
+		})
+		.catch(err => {
+			console.log(err);
+			res.send('Your order cannot be found or does not exist');
+		});
 
-// 	});
+	});
 
 
 // 	//Form Page
